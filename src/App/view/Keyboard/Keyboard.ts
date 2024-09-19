@@ -3,6 +3,7 @@ import {
   BaseComponentProps,
 } from '../../../shared/BaseComponent/BaseComponent';
 import { BUTTONS_PARAMS } from './keyboard.constants';
+import { ButtonTitle } from './keyboard.types';
 import './keyboard.css';
 
 // const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -11,6 +12,7 @@ import './keyboard.css';
 
 export class Keyboard extends BaseComponent {
   public buttons: BaseComponent[];
+  
   constructor(props: BaseComponentProps) {
     super({ ...props, classNames: 'buttons-container' });
 
@@ -21,10 +23,9 @@ export class Keyboard extends BaseComponent {
         textContent: button.title,
         parentNode: this.getElement(),
       });
-      buttonElement.getElement().addEventListener('click', () => {
-        console.log('hello', button);
-      });
       return buttonElement;
     });
   }
+  getButton = (title: ButtonTitle) =>
+    this.buttons.find((el) => el.getTextContent() === title);
 }
