@@ -1,10 +1,10 @@
-import { Calculator } from "../Calculator/Calculator"
+import { Keyboard } from "./view/Keyboard/Keyboard"
 export class App {
   private appContainer: HTMLElement;
 
   private parent: HTMLElement;
 
-  private calculator: Calculator;
+  private keyboard: Keyboard;
 
 
 
@@ -12,7 +12,7 @@ export class App {
     this.appContainer = document.createElement('div');
     this.appContainer.className = 'app-container';
     this.parent = parent;
-    this.calculator = new Calculator({ tagName: "div", parentNode: this.appContainer })
+    this.keyboard = new Keyboard({ parentNode: this.appContainer })
   }
 
   start = () => {
