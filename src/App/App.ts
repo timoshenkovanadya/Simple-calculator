@@ -1,12 +1,18 @@
+import { Calculator } from "../Calculator/Calculator"
 export class App {
-  public appContainer: HTMLElement;
+  private appContainer: HTMLElement;
 
-  public parent: HTMLElement;
+  private parent: HTMLElement;
+
+  private calculator: Calculator;
+
+
 
   constructor(parent: HTMLElement) {
     this.appContainer = document.createElement('div');
     this.appContainer.className = 'app-container';
     this.parent = parent;
+    this.calculator = new Calculator({ tagName: "div", parentNode: this.appContainer })
   }
 
   start = () => {
