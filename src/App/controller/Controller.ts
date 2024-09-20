@@ -70,7 +70,11 @@ export class Controller {
     ({ title }: OperatorOperationType) =>
     () => {
       if (this.prev && this.current) {
-        this.current = makeOperation(this.operation || title, this.prev, this.current);
+        this.current = makeOperation(
+          this.operation || title,
+          this.prev,
+          this.current,
+        );
         this.prev = '';
         this.showOnDisplay();
       }
@@ -104,7 +108,11 @@ export class Controller {
   };
 
   percentHandler = () => {
-    this.current = ((+this.prev / 100) * +this.current).toString();
+    if (!this.prev) {
+      this.current = (+this.current / 100).toString();
+    } else {
+      this.current = ((+this.prev / 100) * +this.current).toString();
+    }
     this.showOnDisplay();
   };
 }

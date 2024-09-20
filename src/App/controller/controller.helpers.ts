@@ -19,7 +19,13 @@ export const makeOperation = (
       res = prev * current;
       break;
     case '/':
-      res = (prev / current).toFixed(5);
+        if (current === 0) {res = "Error: !/0"}
+        else if ((prev / current).toString().split('.')[1]?.length > 5) {
+            res = (prev / current).toFixed(5);
+        } else {
+            res = prev / current;
+        }
+      
       break;
       
     default:

@@ -27,6 +27,7 @@ body {
 }
 
 .display {
+  display: flex;
   width: 89%;
   height: 100px;
   color: white;
