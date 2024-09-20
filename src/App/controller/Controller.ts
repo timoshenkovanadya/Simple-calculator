@@ -70,7 +70,7 @@ export class Controller {
     ({ title }: OperatorOperationType) =>
     () => {
       if (this.prev && this.current) {
-        this.current = makeOperation(title, this.prev, this.current);
+        this.current = makeOperation(this.operation || title, this.prev, this.current);
         this.prev = '';
         this.showOnDisplay();
       }

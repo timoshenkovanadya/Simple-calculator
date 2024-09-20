@@ -6,7 +6,7 @@ export const BUTTONS_PARAMS = [
   { type: 'number', title: '7', className: 'light' },
   { type: 'number', title: '8', className: 'light' },
   { type: 'number', title: '9', className: 'light' },
-  { type: 'operator', title: '×', className: 'orange' },
+  { type: 'operator', title: 'X', className: 'orange' },
   { type: 'number', title: '4', className: 'light' },
   { type: 'number', title: '5', className: 'light' },
   { type: 'number', title: '6', className: 'light' },

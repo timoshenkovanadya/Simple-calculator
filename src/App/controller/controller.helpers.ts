@@ -15,7 +15,7 @@ export const makeOperation = (
     case '-':
       res = prev - current;
       break;
-    case '×':
+    case 'X':
       res = prev * current;
       break;
     case '/':
