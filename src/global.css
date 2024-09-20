@@ -5,15 +5,19 @@
 }
 
 body {
-  background: linear-gradient(to right, #f12711, #f5af19);
+  
   font-size: 12px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .calculator-container {
+  display: flex;
+  background-color: #4d4343e1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 470px;
   height: auto;
-  background-color: black;
   margin: 150px auto;
   border-radius: 20px;
   padding: 10px;
@@ -23,6 +27,7 @@ body {
 }
 
 .display {
+  width: 89%;
   height: 100px;
   color: white;
   font-size: 70px;
@@ -32,8 +37,10 @@ body {
 }
 
 .buttons-container {
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .button {
@@ -43,12 +50,12 @@ body {
   width: 22%;
   margin: 1px 1px;
   font-size: 30px;
-  background-color: rgba(128, 128, 128, 0.372);
+  background-color: darkgray;
 }
 
 .btn-zero {
   padding: 30px 180px 26px 20px;
-  background-color: grey;
+  background-color: #8f8c8c;
 }
 
 .orange {
@@ -56,11 +63,20 @@ body {
 }
 
 .light {
+  background-color: #8f8c8c;
+
+}
+.dark {
   background-color: grey;
 }
 
-.app-container {
+.app-container-light {
+  background-color:aquamarine;
   margin: 20px auto;
-  width: 450px;
+  width: 470px;
   justify-content: center;
+}
+
+.app-container-dark {
+  background-color: black;
 }
