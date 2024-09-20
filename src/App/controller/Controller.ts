@@ -41,8 +41,11 @@ export class Controller {
           button.setOnclick(this.clearHandler);
           break;
         case 'sign':
-            button.setOnclick(this.changeSignHandler);
-        break
+          button.setOnclick(this.changeSignHandler);
+          break;
+        case 'percent':
+          button.setOnclick(this.percentHandler);
+          break;
       }
     });
   }
@@ -96,7 +99,12 @@ export class Controller {
     this.showOnDisplay();
   };
   changeSignHandler = () => {
-    this.current = ((+this.current) * -1).toString();
+    this.current = (+this.current * -1).toString();
     this.showOnDisplay();
-  }
+  };
+
+  percentHandler = () => {
+    this.current = ((+this.prev / 100) * +this.current).toString();
+    this.showOnDisplay();
+  };
 }
