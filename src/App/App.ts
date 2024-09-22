@@ -21,6 +21,7 @@ export class App {
     this.display = new Display({ parentNode: this.calculatorContainer.getElement() });
     this.keyboard = new Keyboard({ parentNode: this.calculatorContainer.getElement() });
     new Controller(this.display, this.keyboard);
+   
   }
 
   themeToggle = () => {

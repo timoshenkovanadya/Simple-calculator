@@ -16,6 +16,6 @@ export const BUTTONS_PARAMS = [
   { type: 'number', title: '3', className: 'light' },
   { type: 'operator', title: '+', className: 'orange' },
   { type: 'number', title: '0', className: 'btn-zero' },
-  { type: 'comma', title: ',', className: 'light' },
+  { type: 'comma', title: '.', className: 'light' },
   { type: 'equal', title: '=', className: 'orange' },
 ] as const;

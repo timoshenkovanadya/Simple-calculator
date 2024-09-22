@@ -5,9 +5,9 @@ export const makeOperation = (
   prevDirty: string,
   currentDirty: string,
 ) => {
-  const prev = Number(prevDirty.replace(',', ''));
-  const current = Number(currentDirty.replace(',', ''));
-  let res;
+  const prev = Number(prevDirty.replace(/(^\.)|(\.$)/, ''));
+  const current = Number(currentDirty.replace(/(^\.)|(\.$)/, ''));
+  let res: number;
   switch (symbol) {
     case '+':
       res = prev + current;
@@ -19,17 +19,33 @@ export const makeOperation = (
       res = prev * current;
       break;
     case '/':
-        if (current === 0) {res = "Error: !/0"}
-        else if ((prev / current).toString().split('.')[1]?.length > 5) {
-            res = (prev / current).toFixed(5);
-        } else {
-            res = prev / current;
-        }
-      
+      if (current === 0) {
+        res = 0;
+        alert('ERROR: dividing by 0');
+      } else {
+        res = prev / current;
+      }
+
       break;
-      
+
     default:
       res = 0;
   }
-  return res.toString();
+  const maxDisplayLength = 9;
+  const strRes = res.toString();
+  const dirtyLength = strRes.replace('.', '').length;
+  if (dirtyLength > maxDisplayLength) {
+    if (strRes.includes('.')) {
+      const integerPart = strRes.indexOf('.');
+      const fixedLength = maxDisplayLength - integerPart;
+      return Number(res.toFixed(fixedLength)).toString();
+    } else {
+      const dirtyCut = strRes.slice(0, maxDisplayLength);
+      const nextNumberForRound = Number(strRes[maxDisplayLength]);
+      return nextNumberForRound < 5
+        ? Number(dirtyCut).toExponential(6)
+        : Number(dirtyCut + 1).toExponential(6);
+    }
+  }
+  return strRes;
 };

@@ -19,8 +19,9 @@ export class Controller {
     this.display = display;
     this.keyboard = keyboard;
     this.prev = '';
-    this.current = '';
+    this.current = '0';
     this.operation = null;
+    this.showOnDisplay();
 
     this.keyboard.buttons.forEach((button, index) => {
       const buttonParam = BUTTONS_PARAMS[index];
@@ -57,13 +58,12 @@ export class Controller {
     ({ title }: NumberOperationType) =>
     () => {
       if (!this.operation || this.prev) {
-        this.current += title;
-        this.showOnDisplay();
+        this.current = this.current === '0' ? title : this.current + title;
       } else {
         this.prev = this.current;
         this.current = title;
-        this.showOnDisplay();
       }
+      this.showOnDisplay();
     };
 
   operationHandler =
@@ -82,8 +82,8 @@ export class Controller {
     };
 
   commaHandler = () => {
-    if (this.current.includes(',')) return;
-    this.current += ',';
+    if (this.current.includes('.')) return;
+    this.current += '.';
     this.showOnDisplay();
   };
 
@@ -98,7 +98,7 @@ export class Controller {
 
   clearHandler = () => {
     this.prev = '';
-    this.current = '';
+    this.current = '0';
     this.operation = null;
     this.showOnDisplay();
   };
