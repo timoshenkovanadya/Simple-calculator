@@ -53,6 +53,15 @@ body {
   background-color: darkgray;
 }
 
+button:hover {
+  opacity: 0.8;
+}
+
+.orange:focus {
+  background-color: lightyellow;
+  color: orange;
+}
+
 .btn-zero {
   padding: 30px 180px 26px 20px;
   background-color: #8f8c8c;
