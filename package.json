@@ -22,7 +22,7 @@
   "description": "My webpack project",
   "name": "my-webpack-project",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "npx eslint .",
     "format": "prettier --write .",
     "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
     "build": "webpack --mode=production --node-env=production",
