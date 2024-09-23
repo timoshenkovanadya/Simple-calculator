@@ -58,6 +58,9 @@ export class Controller {
     ({ title }: NumberOperationType) =>
     () => {
       if (!this.operation || this.prev) {
+        if (this.current.length >= 9) {
+          return;
+        }
         this.current = this.current === '0' ? title : this.current + title;
       } else {
         this.prev = this.current;
