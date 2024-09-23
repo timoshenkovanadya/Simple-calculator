@@ -112,9 +112,9 @@ export class Controller {
 
   percentHandler = () => {
     if (!this.prev) {
-      this.current = (+this.current / 100).toString();
+      this.current = this.current = (+this.current / 100).toString().length <= 9 ? (+this.current / 100).toString() : (+this.current / 100).toFixed(8);;
     } else {
-      this.current = ((+this.prev / 100) * +this.current).toString();
+      this.current = ((+this.prev / 100) * +this.current).toString().length <= 9 ? ((+this.prev / 100) * +this.current).toString() : ((+this.prev / 100) * +this.current).toFixed(1);
     }
     this.showOnDisplay();
   };

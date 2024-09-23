@@ -38,6 +38,7 @@ export const makeOperation = (
     if (strRes.includes('.')) {
       const integerPart = strRes.indexOf('.');
       const fixedLength = maxDisplayLength - integerPart;
+      if (fixedLength < 0) {return res.toExponential(6)}
       return Number(res.toFixed(fixedLength)).toString();
     } else {
       const dirtyCut = strRes.slice(0, maxDisplayLength);
