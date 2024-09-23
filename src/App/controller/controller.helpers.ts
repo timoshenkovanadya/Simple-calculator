@@ -36,7 +36,6 @@ export const makeOperation = (
   const dirtyLength = strRes.replace('.', '').length;
   if (dirtyLength > maxDisplayLength) {
     if (strRes.includes('.')) {
-      
       const integerPart = strRes.indexOf('.');
       const fixedLength = maxDisplayLength - integerPart;
       return Number(res.toFixed(fixedLength)).toString();

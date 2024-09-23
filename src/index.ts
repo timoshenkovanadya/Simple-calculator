@@ -1,9 +1,9 @@
-import { App } from "./App/App";
-import "./global.css";
+import { App } from './App/App';
+import './global.css';
 
-const container = document.querySelector("body");
+const container = document.querySelector('body');
 
 if (container) {
-    const app = new App(container);
-    app.start();
+  const app = new App(container);
+  app.start();
 }

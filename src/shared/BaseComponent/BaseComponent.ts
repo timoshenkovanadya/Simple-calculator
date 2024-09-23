@@ -21,7 +21,7 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
   protected element: T;
 
   constructor(props: BaseComponentProps) {
-    this.element = document.createElement(props.tagName || 'div' ) as T;
+    this.element = document.createElement(props.tagName || 'div') as T;
     this.setClassName(props.classNames ?? '');
     this.setTextContent(props.textContent ?? '');
     if (props.parentNode) {
